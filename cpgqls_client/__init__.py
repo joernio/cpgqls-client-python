@@ -1,2 +1,2 @@
-from .client import *
-from .queries import *
+from .client import * # noqa
+from .queries import * # noqa
