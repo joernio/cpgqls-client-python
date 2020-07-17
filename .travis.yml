@@ -9,6 +9,7 @@ script:
 - python -m pytest
 deploy:
   provider: pypi
+  skip_existing: true
   distributions: sdist bdist_wheel
   username: __token__
   password:
