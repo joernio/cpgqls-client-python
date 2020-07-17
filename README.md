@@ -66,5 +66,4 @@ $ python -m pytest
 * Code Property Graph specification and tools
   https://github.com/ShiftLeftSecurity/codepropertygraph/
 * The open source code analyzer joern: https://joern.io
-* ShiftLeft Ocular: https://ocular.shiftleft.io
 
