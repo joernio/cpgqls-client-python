@@ -15,9 +15,13 @@ pip install clpgqls-client
 
 ### Example usage
 
-Assuming that an instance of a Code Property Graph server is running locally
-(e.g. with `joern --server`), the following snipped shows a basic use of the
-library:
+A prerequisite for the following example is access to a running instance of a
+Code Property Graph server. An easy way to set one up is by using the open
+source code analyzer [joern](https://joern.io):
+
+```bash
+$ ./joern --server
+```
 
 ```python
 from cpgqls_client import CPGQLSClient, import_code_query, workspace_query
