@@ -49,7 +49,7 @@ class CPGQLSClient(object):
             endpoint = self._post_query_endpoint()
             post_res = self._transport.post(endpoint, json={"query": query})
             if post_res.status_code != 200:
-                exception_msg = """Coould not post query to the HTTP
+                exception_msg = """Could not post query to the HTTP
                 endpoint of the server"""
                 raise Exception(exception_msg)
             last_msg = await ws_conn.recv()
