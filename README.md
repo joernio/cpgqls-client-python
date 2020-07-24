@@ -10,7 +10,7 @@ Python 3.7+
 ### Installation
 
 ```
-pip install clpgqls-client
+pip install cpgqls-client
 ```
 
 ### Example usage
