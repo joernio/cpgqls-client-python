@@ -1,7 +1,7 @@
+import pytest
+
 from cpgqls_client import import_code_query
 from cpgqls_client import workspace_query
-
-import pytest
 
 
 def test_workspace_query():
