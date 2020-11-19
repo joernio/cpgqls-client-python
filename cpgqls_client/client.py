@@ -56,7 +56,7 @@ class CPGQLSClient:
                 exception_msg = """Could not post query to the HTTP
                 endpoint of the server"""
                 raise Exception(exception_msg)
-            await ws_conn.recv()
+            await asyncio.wait_for(ws_conn.recv(), timeout=3600)
             endpoint = self.get_result_endpoint(post_res.json()["uuid"])
             get_res = self._transport.get(endpoint, auth=self._auth_creds)
             if post_res.status_code == 401:
