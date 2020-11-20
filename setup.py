@@ -12,12 +12,12 @@ setup(
     name="cpgqls-client",
     version="0.0.7",
     author="ShiftLeft Inc.",
-    author_email="support@shiftleft.io",
+    author_email="claudiu@shiftleft.io",
     description="A client library for CPGQL servers",
     long_description=long_description,
     long_description_content_type="text/markdown",
 
-    url="https://github.com/ShiftLeftSecurity/codepropertygraph",
+    url="https://github.com/joernio/cpgqls-client-python",
     install_requires=[
         "requests>=2.0.0",
         "websockets>=8.1",
