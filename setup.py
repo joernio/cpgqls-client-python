@@ -10,7 +10,7 @@ with open("README.md", "r") as fh:
 
 setup(
     name="cpgqls-client",
-    version="0.0.7",
+    version="0.0.8",
     author="ShiftLeft Inc.",
     author_email="claudiu@shiftleft.io",
     description="A client library for CPGQL servers",
@@ -26,6 +26,7 @@ setup(
     classifiers=[
         "Programming Language :: Python :: 3.7",
         "Programming Language :: Python :: 3.8",
+        "Programming Language :: Python :: 3.9",
         "License :: OSI Approved :: Apache Software License",
         "Operating System :: OS Independent",
     ],
