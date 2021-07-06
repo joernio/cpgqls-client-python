@@ -19,8 +19,8 @@ setup(
 
     url="https://github.com/joernio/cpgqls-client-python",
     install_requires=[
-        "requests>=2.0.0",
-        "websockets>=8.1",
+        "requests>=2.25.1",
+        "websockets>=9.1",
     ],
     packages=find_packages(exclude=["tests", "tests.*"]),
     classifiers=[
