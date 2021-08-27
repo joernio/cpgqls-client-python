@@ -9,7 +9,7 @@ class CPGQLSTransport:
         self._ws_conn = None
 
     def connect(self, endpoint):
-        self._ws_conn = websockets.connect(endpoint)
+        self._ws_conn = websockets.connect(endpoint, ping_interval=None)
         return self._ws_conn
 
     async def recv(self):
