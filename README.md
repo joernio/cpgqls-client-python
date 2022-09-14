@@ -5,7 +5,7 @@ a Code Property Graph Query Language server.
 
 ### Requirements
 
-Python 3.7+
+Python 3.7
 
 ### Installation
 
