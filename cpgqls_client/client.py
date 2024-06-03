@@ -24,6 +24,7 @@ class CPGQLSTransport:
 
 class CPGQLSClient:
     CPGQLS_MSG_CONNECTED = "connected"
+    DEFAULT_TIMEOUT = 3600
 
     def __init__(self, server_endpoint, event_loop=None, transport=None, auth_credentials=None):
         if server_endpoint is None:
@@ -36,10 +37,10 @@ class CPGQLSClient:
         self._endpoint = server_endpoint.rstrip("/")
         self._auth_creds = auth_credentials
 
-    def execute(self, query):
-        return self._loop.run_until_complete(self._send_query(query))
+    def execute(self, query, timeout=self.DEFAULT_TIMEOUT):
+        return self._loop.run_until_complete(self._send_query(query, timeout=timeout))
 
-    async def _send_query(self, query):
+    async def _send_query(self, query, timeout=self.DEFAULT_TIMEOUT):
         endpoint = self.connect_endpoint()
         async with self._transport.connect(endpoint) as ws_conn:
             connected_msg = await ws_conn.recv()
@@ -56,7 +57,7 @@ class CPGQLSClient:
                 exception_msg = """Could not post query to the HTTP
                 endpoint of the server"""
                 raise Exception(exception_msg)
-            await asyncio.wait_for(ws_conn.recv(), timeout=3600)
+            await asyncio.wait_for(ws_conn.recv(), timeout=timeout)
             endpoint = self.get_result_endpoint(post_res.json()["uuid"])
             get_res = self._transport.get(endpoint, auth=self._auth_creds)
             if post_res.status_code == 401:
