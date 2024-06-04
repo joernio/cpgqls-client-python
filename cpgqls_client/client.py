@@ -37,10 +37,10 @@ class CPGQLSClient:
         self._endpoint = server_endpoint.rstrip("/")
         self._auth_creds = auth_credentials
 
-    def execute(self, query, timeout=self.DEFAULT_TIMEOUT):
+    def execute(self, query, timeout=DEFAULT_TIMEOUT):
         return self._loop.run_until_complete(self._send_query(query, timeout=timeout))
 
-    async def _send_query(self, query, timeout=self.DEFAULT_TIMEOUT):
+    async def _send_query(self, query, timeout=DEFAULT_TIMEOUT):
         endpoint = self.connect_endpoint()
         async with self._transport.connect(endpoint) as ws_conn:
             connected_msg = await ws_conn.recv()
