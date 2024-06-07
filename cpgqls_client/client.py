@@ -32,7 +32,16 @@ class CPGQLSClient:
         if not isinstance(server_endpoint, str):
             raise ValueError("server_endpoint parameter has to be a string")
 
-        self._loop = asyncio.get_event_loop() if not event_loop else event_loop
+        def get_or_create_eventloop():
+            try:
+                return asyncio.get_event_loop()
+            except RuntimeError as e:
+                if "There is no current event loop in thread" in str(e):
+                    loop = asyncio.new_event_loop()
+                    asyncio.set_event_loop(loop)
+                    return asyncio.get_event_loop()
+
+        self._loop = get_or_create_eventloop() if not event_loop else event_loop
         self._transport = CPGQLSTransport() if not transport else transport
         self._endpoint = server_endpoint.rstrip("/")
         self._auth_creds = auth_credentials
